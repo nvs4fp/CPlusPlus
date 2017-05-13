@@ -10,7 +10,7 @@ FlyBird::FlyBird(string name, double flyDistance):Bird(name)
 
 void FlyBird::ICan()
 {
-	cout << "I can fly "<< this->flyDistance <<" kilometres long!"<< endl << endl;
+	cout << "I can fly "<< this->flyDistance <<" kilometers long!"<< endl << endl;
 }
 
 

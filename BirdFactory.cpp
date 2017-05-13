@@ -16,13 +16,15 @@ BirdFactory::~BirdFactory()
 
 Bird* BirdFactory::Create(string name, double distance, int type)
 {
-	if (type == 0)
+	switch (type)
 	{
+	case SWIMMING_BIRD:
 		return new FlyBird(name, distance);
-	}
-	else
-	{
+		break;
+	case FLY_BIRD:
 		return new SwimmingBird(name, distance);
+		break;
+	default:
+		return NULL;
 	}
-	return NULL;
 }

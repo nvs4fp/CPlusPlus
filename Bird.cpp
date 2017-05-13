@@ -8,7 +8,7 @@ Bird::Bird(string name)
 
 void Bird::WhoAmI()
 {
-	cout << "I am a bird! My name is:" << this->name << endl;
+	cout << "I am a bird! My name is: " << this->name << ". " << endl;
 }
 
 Bird::~Bird()
