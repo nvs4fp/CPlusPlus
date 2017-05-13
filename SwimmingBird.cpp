@@ -12,6 +12,7 @@ SwimmingBird::SwimmingBird(string name, double swmDistance):Bird(name)
 
 SwimmingBird::~SwimmingBird()
 {
+	// ToDo: distory new located value;
 }
 
 
