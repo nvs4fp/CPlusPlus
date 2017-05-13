@@ -4,7 +4,7 @@ class SwimmingBird :
 	public Bird
 {
 public:
-	SwimmingBird(string name, double swmDistance);
+	SwimmingBird(string name, double flyDistance);
 	void ICan();
 	~SwimmingBird();
 private:
