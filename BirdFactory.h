@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////
+//BirdFactory.h
+//Description: Using simple factory pattern to create birds.
+//Create: 13-May-2017
+//Author: Levi Li
+//History:
+//Data			Name			Description
+//13-May-2017	Levi Li			Initial
+//////////////////////////////////////////////////////////////
 #pragma once
 #include <sstream>
 #include "Bird.h"
