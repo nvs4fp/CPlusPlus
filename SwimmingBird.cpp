@@ -1,4 +1,5 @@
-//Description 
+//Description
+//Author: Levi Li
 #include "SwimmingBird.h"
 #include<iostream>
 #include<sstream>
