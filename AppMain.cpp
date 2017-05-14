@@ -8,10 +8,13 @@
 //13-May-2017	Levi Li			Initial
 //13-May-2017	Levi Li			Add fish create related class using factory pattern
 //////////////////////////////////////////////////////////////////////////////////////////
+#include "AbstractBirdProduct.h"
+#include "Animals.h"
 #include "BigFish.h"
 #include "BigFishCreator.h"
 #include "Bird.h"
 #include "BirdFactory.h"
+#include "FishBirdFactory.h"
 #include "FishFactory.h"
 #include "FlyBird.h"
 #include "MagicFish.h"
@@ -20,19 +23,21 @@
 #include "SmallFishCreator.h"
 #include "SwimmingBird.h"
 
-#include "FishBirdFactory.h"
-#include "Animals.h"
-#include "AbstractBirdProduct.h"
+#include "Director.h"
+#include "Product.h"
+#include "Builder.h"
 
-void bird_create_pattern();//Using simple factory pattern to create bird object
-void fish_create_pattern();//Using factory pattern to create fish object
-void fish_bird_create_pattern();
 
+void bird_create_pattern();			//Using simple factory pattern to create bird object
+void fish_create_pattern();			//Using factory pattern to create fish object
+void fish_bird_create_pattern();	//Using abstract factory pattern to create fish object
+void product_director_builder();	//Using Builder pattern to create different products
 void main()
 {
 	//bird_create_pattern();
 	//fish_create_pattern();
-	fish_bird_create_pattern();
+	//fish_bird_create_pattern();
+	product_director_builder();
 
 	system("PAUSE");
 }
@@ -103,4 +108,22 @@ void fish_bird_create_pattern()
 	delete fdp;
 	delete fp;
 
+}
+
+void product_director_builder()
+{
+	AbstractBuilder* absBuilder = nullptr;
+	absBuilder = new Builder();
+
+	Director *director = nullptr;
+	director = new Director(absBuilder);
+
+	director->Construct(1, 2, 3);
+	absBuilder->GetProduct()->Show();
+
+	director->Construct(3, 2, 1);
+	absBuilder->GetProduct()->Show();
+
+	delete absBuilder;
+	delete director;
 }
