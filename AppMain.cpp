@@ -20,13 +20,19 @@
 #include "SmallFishCreator.h"
 #include "SwimmingBird.h"
 
+#include "FishBirdFactory.h"
+#include "Animals.h"
+#include "AbstractBirdProduct.h"
+
 void bird_create_pattern();//Using simple factory pattern to create bird object
 void fish_create_pattern();//Using factory pattern to create fish object
+void fish_bird_create_pattern();
 
 void main()
 {
-	bird_create_pattern();
-	fish_create_pattern();
+	//bird_create_pattern();
+	//fish_create_pattern();
+	fish_bird_create_pattern();
 
 	system("PAUSE");
 }
@@ -72,4 +78,29 @@ void fish_create_pattern()
 	delete fash;
 	fp = nullptr;
 	fash = nullptr;
+}
+
+void fish_bird_create_pattern()
+{
+	FishBirdFactory *fp = nullptr;
+	fp = new AFishBirdFactory();
+	AbstractBirdProduct *bdp = fp->BirdCreater();
+	AbstractFishProduct	*fdp = fp->FishCreater();
+	bdp->Sing();
+	fdp->Swimming();
+	delete bdp;
+	delete fdp;
+	delete fp;
+
+	fp = new BFishBirdFactory();
+	bdp = fp->BirdCreater();
+	fdp = fp->FishCreater();
+
+	bdp->Sing();
+	fdp->Swimming();
+
+	delete bdp;
+	delete fdp;
+	delete fp;
+
 }
